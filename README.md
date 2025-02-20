@@ -1,6 +1,6 @@
 # Sanber64-Cypress-Kelompok8
 
-Anggota Kelompok 8:
+Anggota Kelompok 8 :
 1. Sri Dewi Nandita Sari Siregar
 2. Naufal Bima Raifan
 3. Adzkia Q Ayuni
