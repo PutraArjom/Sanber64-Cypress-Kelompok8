@@ -7,7 +7,7 @@ Anggota Kelompok 8 :
 4. Hendianto Eka
 5. Nyimas Sri Dewi Lentera
 
-# Pembagian Tugas
+Pembagian Tugas : 
 1. Create an Account -> Nyimas Sri Dewi Lentera
 2. Login -> Hendianto Eka 
 3. My Account (Edit Account Information & Edit Address) -> Naufal Bima Raifan
