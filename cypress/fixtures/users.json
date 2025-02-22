@@ -1,0 +1,26 @@
+{
+    "invalidEmailUser": {
+      "firstName": "Bunga",
+      "lastName": "Mawar",
+      "email": "invalidEmail",
+      "password": "SecureP@ss1"
+    },
+    "weakPasswordUser": {
+      "firstName": "Bunga",
+      "lastName": "Mawar",
+      "password": "1234"
+    },
+    "unmatchedPasswordUser": {
+      "firstName": "Bunga",
+      "lastName": "Mawar",
+      "password": "P@ssw0rd",
+      "confirmPassword": "DifferentP@ssw0rd"
+    },
+    "existingUser": {
+      "firstName": "Bunga",
+      "lastName": "Mawar",
+      "email": "Babakan@gmail.com",
+      "password": "SecureP@ss1"
+    }
+  }
+  
