@@ -1,25 +1,19 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import registrationPage from '../support/page-object/registrationPage';
+
+Cypress.Commands.add('registerWithInvalidEmail', (firstName, lastName, email, password) => {
+    cy.get('input#firstname').type(firstName);
+    cy.get('input#lastname').type(lastName);
+    cy.get('input#email_address').type(email);
+    cy.get('input#password').type(password);
+    cy.get('input#password-confirmation').type(password);
+    registrationPage.submitForm();
+});
+
+Cypress.Commands.add('registerWithExistingEmail', (firstName, lastName, email, password) => {
+    cy.get('input#firstname').type(firstName);
+    cy.get('input#lastname').type(lastName);
+    cy.get('input#email_address').type(email);
+    cy.get('input#password').type(password);
+    cy.get('input#password-confirmation').type(password);
+    registrationPage.submitForm();
+});
