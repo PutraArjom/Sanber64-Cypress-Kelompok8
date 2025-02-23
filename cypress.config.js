@@ -8,6 +8,6 @@ module.exports = defineConfig({
       return config;
     },
     pageLoadTimeout: 80000,
-    defaultCommandTimeout: 80000
+    defaultCommandTimeout: 5000
   },
 });
