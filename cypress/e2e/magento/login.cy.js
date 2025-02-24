@@ -30,7 +30,7 @@ describe("template spec", () => {
     cy.get('#pass-error').should('contain.text','This is a required field')
   });
 
-  it.only("Failed Login - The user did not enter email", () => {
+  it("Failed Login - The user did not enter email", () => {
     loginPage.inputPassword()
     loginPage.buttonSigIn()
     cy.get('#email-error').should('contain.text','This is a required field')
