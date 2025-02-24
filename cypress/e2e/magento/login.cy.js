@@ -1,30 +1,45 @@
+import loginPage from "../../support/page-object/loginPage";
 
 describe("template spec", () => {
   beforeEach(() => {
-    cy.visit('https://magento.softwaretestingboard.com/customer/account/login/');
+    loginPage.visit('')
   });
 
   it("Success Login", () => {
-    cy.get('#email').type("Sukri@gmail.com");
-    cy.get('#pass').type("SukriPeod1");
-    cy.get('#send2').click();
+    cy.login('Sukri@gmail.com','SukriPeod1') //File pemanggilan ada di command.js
     cy.get('.base').should('have.text','My Account')
   });
 
   it("Failed Login - The user did not enter email and password", () => {
-    cy.get('#send2').click();
-    cy.get('.message-error').should('be.visible')
+    loginPage.buttonSigIn()
+    cy.get('#email-error').should('contain.text','This is a required field')
+    cy.get('#pass-error').should('contain.text','This is a required field')
   });
 
   it("Failed Login - The user did not enter email", () => {
-    cy.get('#pass').type("SukriPeod1");
-    cy.get('#send2').click();
+    loginPage.inputPassword()
+    loginPage.buttonSigIn()
     cy.get('#email-error').should('contain.text','This is a required field')
   });
   
   it("Failed Login - The user did not enter password", () => {
-    cy.get('#email').type("Sukri@gmail.com");
-    cy.get('#send2').click();
+    loginPage.inputUser()
+    loginPage.buttonSigIn()
     cy.get('#pass-error').should('contain.text','This is a required field')
+  });
+
+  it("Try Forgot password", () => {
+    loginPage.forgotPass()
+    loginPage.inputUser()
+    loginPage.buttonResetPassword()
+    cy.url().should('include','/account/login') 
+    cy.get('.message-success > div').should('be.visible')
+  });
+
+  it("Try Forgot password - No input Email", () => {
+    loginPage.forgotPass()
+    loginPage.buttonResetPassword()
+    cy.get('.message-error > div').should('be.visible')
+    //cy.get('#email_address-error').should('be.visible')
   });
 });

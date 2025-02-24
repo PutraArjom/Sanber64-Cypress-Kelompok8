@@ -17,3 +17,9 @@ Cypress.Commands.add('registerWithExistingEmail', (firstName, lastName, email, p
     cy.get('input#password-confirmation').type(password);
     registrationPage.submitForm();
 });
+
+Cypress.Commands.add('login', (username, password) => { 
+    cy.get('#email').type(username);
+    cy.get('#pass').type(password)
+    cy.get('#send2').click();
+ })
