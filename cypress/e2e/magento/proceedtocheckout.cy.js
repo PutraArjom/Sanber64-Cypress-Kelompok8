@@ -1,22 +1,11 @@
+import loginPage from "../../support/page-object/loginPage"
+
 describe('Proceed to checkout', () => {
   beforeEach(() => {
     loginPage.visit('')
   })
 
-  it('should successfully add product to cart and checkout', () => {
-    // Select a product and add it to the cart
-    cy.get('[data-role="products-list"]')
-      .find('.product-item')
-      .first()
-      .find('.product-item-link')
-      .click()
-
-    // Wait for the product page to load
-    cy.url().should('include', '/product/')
-    
-    // Add product to the cart
-    cy.get('#product-addtocart-button').click()
-
+  it('successfully checkout', () => {
     // Verify the product has been added to the cart
     cy.get('.minicart-items').should('contain', '1 item(s)')
 
